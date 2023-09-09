@@ -1,13 +1,16 @@
-h1, h2 {font-family: 'Oswald';}
-p, li, a {font-family: 'Opens Sans';}
-body, p, h1, h2, a, li {color: darkblue;}
-* {margin-top: 10px;
-margin-bottom: 10px;
-margin-left: 50px;
-margin-right: 50px;}
-* {max-width: 950px;
-margin-left: auto;
-margin-right: auto;}
-* {background-color: ivory;}
-.logo {vertical-align: middle;
-margin-right: 10px;}
+h1, h2 {
+    font-family: 'Oswald', sans-serif;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: darkblue;
+    margin: 10px 50px 10px 50px;
+    width: 950px;
+    background-color: ivory;
+}
+img {
+    float: left;
+    margin-right: 10px;
+}
+
+

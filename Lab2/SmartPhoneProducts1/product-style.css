@@ -1,0 +1,30 @@
+h1,h2 {
+    text-align: center;
+}
+body {
+    width: 800px;
+    margin: 0 auto;
+    /* Set an image as the background for the body element */
+    background-image: url('/Lab2/SmartPhoneProducts1/images/phone_globe.jpg');
+    background-size: cover; /* Adjust the image size to cover the entire element */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Keep the background fixed while scrolling (optional) */
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 20px;
+    
+
+}
+/*style the div childre*/
+body > div {
+    border: 5px solid black;
+    display: flex;
+}
+/*make the pictures smaller and uniformed*/
+img {width: 300px;
+    height: 300px;
+}

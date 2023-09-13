@@ -1,0 +1,61 @@
+
+/*General*/
+
+body {
+    width: 800px;
+    margin: 0 auto;
+    /* Set an image as the background for the body element */
+    background-image: url('/Lab2/SmartPhoneProducts1/images/phone_globe.jpg');
+    background-size: cover; /* Adjust the image size to cover the entire element */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Keep the background fixed while scrolling (optional) */
+}
+/*Typography*/
+h1,h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 20px;
+    
+
+}
+/*style the div childre*/
+body > div {
+    border: 5px solid black;
+    display: flex;
+}
+/*make the pictures smaller and uniformed*/
+img {width: 300px;
+    height: 300px;
+}
+/*make Items font larger and bold*/
+h2{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+/* make price font larger and bold*/
+p{
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+.rotate img
+{
+    animation: rotation .3s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}

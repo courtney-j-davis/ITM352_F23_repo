@@ -5,7 +5,7 @@ body {
     width: 800px;
     margin: 0 auto;
     /* Set an image as the background for the body element */
-    background-image: url('/Lab4/images/phone_globe.jpg');
+    background-image: url('/Lab4/images/phone_globe_copy.jpg');
     background-size: cover; /* Adjust the image size to cover the entire element */
     background-repeat: no-repeat; /* Prevent image repetition */
     background-attachment: fixed; /* Keep the background fixed while scrolling (optional) */

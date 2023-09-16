@@ -23,5 +23,6 @@ Div
 Add
 Subtract*/
 //output calc1 and 2 to the DOM
+
 document.getElementById("result1").innerHTML = calc1;
 document.getElementById("result2").innerHTML = calc2;

@@ -18,7 +18,7 @@ main {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    background:  url(/Lab4/images/phone_globe_copy.jpg) no-repeat 50% center;
+    background:  url(ITM352_F23_repo/Lab4/images/phone_globe_copy.jpg) no-repeat 50% center;
     color: black;
     }
 /*style the div childre*/

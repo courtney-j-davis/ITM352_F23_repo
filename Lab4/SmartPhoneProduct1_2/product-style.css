@@ -5,10 +5,7 @@ body {
     width: 800px;
     margin: 0 auto;
     /* Set an image as the background for the body element */
-    background-image: url('/Lab4/images/phone_globe_copy.jpg');
-    background-size: cover; /* Adjust the image size to cover the entire element */
-    background-repeat: no-repeat; /* Prevent image repetition */
-    background-attachment: fixed; /* Keep the background fixed while scrolling (optional) */
+    
 }
 /*Typography*/
 h1,h2 {
@@ -16,35 +13,34 @@ h1,h2 {
     margin: 0px;
     text-align: center;
 }
-
+/* Block Styling*/
 main {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    padding: 20px;
-    
-
-}
+    background:  url(/Lab4/images/phone_globe_copy.jpg) no-repeat 50% center;
+    color: black;
+    }
 /*style the div childre*/
 body > div {
     border: 5px solid black;
     display: flex;
 }
 /*make the pictures smaller and uniformed*/
-img {width: 300px;
-    height: 300px;
+img {width: 200px;
+    height: 200px;
 }
 /*make Items font larger and bold*/
 h2{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
-    color: white;
+    color:black;
 }
 /* make price font larger and bold*/
  p{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
-    color: white;
+    color: yellow;
 }
 .rotate img
 {

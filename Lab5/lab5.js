@@ -4,9 +4,9 @@ let fav_num=7; //not my real fav number
 let day_of_birth=19;
 let month_of_birth=11;
 
-//define caluculations
+//define caluculations with the same variables using diferent precedence
 let calc1=age + fav_num / day_of_birth * month_of_birth;
-let calc2=(age + fav_num) / day_of_birth * month_of_birth
+let calc2=(age + fav_num) / day_of_birth * month_of_birth;
 
 /* PEMDAS
 Please
@@ -22,7 +22,7 @@ Multi
 Div
 Add
 Subtract*/
-//output calc1 and 2 to the DOM
+//output calc1 and 2 to the webpage
 
 document.getElementById("result1").innerHTML = calc1;
 document.getElementById("result2").innerHTML = calc2;

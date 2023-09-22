@@ -36,13 +36,13 @@ img {width: 200px;
 h2{
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 /* make price font larger and bold*/
 p{
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 .rotate img
 {

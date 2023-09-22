@@ -11,33 +11,10 @@
         Hit/Spin:<span id="hit_spin_span">0</span>
         </p>
     <link rel="stylesheet" type="text/css" href="product-style.css">
-    <script>
-        //define all my variables for the document
-        const store_name="Courtney";
-        let first_name= "Courtney";
-        let last_name= "Davis";
-        //making date and time variables to write in footer table
-        let now = new Date ();
-        let year = now.getFullYear();
-        let hours = now.getHours();
-        let minutes = now.getMinutes();
-        //add leading zeros to minutes 
-        minutes = (minutes<10)? "0"+minutes : minutes;
-        //convert hours to 12 hour format and determine AM/PM
-        let ampm = (hours >= 12)? "PM" : "AM";
-        hours= (hours % 12==0)? 12 : hours % 12;
-        // create a string to display the time in the HTML doc
-        let currentTime = hours + ":" + minutes + ampm;
-        
-        
-    </script>
+    
 </head>
 <body onload="hits_span.innerHTML = hits; spins_span.innerHTML = spins;">
-    <h1>
-        <script>
-            document.write ("<strong>"+first_name+ "<strong/>"+" "+ last_name+"'s" +" "+"Used Smart Phone Store");
-        </script>
-    </h1>
+    <h1><span id="top_title"></span></h1>
     <br><br><br><br>
 
 <div>
@@ -82,19 +59,7 @@
     </section>
     </main>
 </div>
-<script>
-    function changeClassName (element){
-        element.className='item rotate';
-    }
-    function resetClassName(element) {
-        element.className='item';
-    }
-    let hits= 0;
-    let spins=0;
-    hits_span.innerHTML=hits;
-        spins_span.innerHTML=spins;
-        
- </script> 
+
     </body>
 <footer>
     <table border="1" style="margin-left: auto;margin-right: auto;text-align: center;">
@@ -102,9 +67,7 @@
         <tr>
             <th colspan="2">
                 <h1>
-    <script>
-        document.write("Your One Stop Phone Shop - "+store_name+"'s");
-    </script>
+    
     </h1>
             </th>
         </tr>
@@ -131,6 +94,6 @@
 </table>
     
 </footer>
-
+<script src="product_display6.html"></script>
 
 </html>

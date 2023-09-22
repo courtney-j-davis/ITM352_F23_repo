@@ -16,7 +16,6 @@
         const store_name="Courtney";
         let first_name= "Courtney";
         let last_name= "Davis";
-        let initials = `${first_name.charAt(0)} ${last_name.charAt(0)}`;
         //making date and time variables to write in footer table
         let now = new Date ();
         let year = now.getFullYear();
@@ -36,7 +35,7 @@
 <body onload="hits_span.innerHTML = hits; spins_span.innerHTML = spins;">
     <h1>
         <script>
-            document.write ("<strong>"+first_name+ "<strong/>"+" "+ "<em>"+last_name+"</em>'s" +"<br>"+"Used Smart Phone Store");
+            document.write ("<strong>"+first_name+ "<strong/>"+" "+ last_name+"'s" +" "+"Used Smart Phone Store");
         </script>
     </h1>
     <br><br><br><br>
@@ -48,13 +47,13 @@
     onclick="resetClassName(this); hits=hits+=2; hits_spans.innerHTML=hits; hit_spin_span.innerHTML=(hits_span.innerHTML/spins_span.innerHTML).toFixed(2);">
         <h2>HTC</h2>
         <p>$40.00</p>
-        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg"
+        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg" 
         alt="HTC">
         
     </section>
         
     <section class="item" onmouseover="changeClassName(this); spins_span.innerHTML=spins++"; 
-    onclick="resetClassName(this);hits=hits++;  hits_span.innerHTML=hits;">
+    onclick="resetClassName(this);hits=hits+=2;  hits_span.innerHTML=hits;">
         <h2>Apple</h2>
         <p>$75.00</p>
         <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg" alt="Apple">
@@ -104,9 +103,7 @@
             <th colspan="2">
                 <h1>
     <script>
-        
-         document.write(`Your One Stop Phone Shop - ${initials}'s`);
-
+        document.write("Your One Stop Phone Shop - "+store_name+"'s");
     </script>
     </h1>
             </th>

@@ -1,4 +1,4 @@
-let name1 = "HTC";
+ let name1 = "HTC";
  let price1 = 40.00;
  let image1 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg";
 

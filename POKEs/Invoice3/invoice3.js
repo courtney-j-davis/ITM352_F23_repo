@@ -1,91 +1,20 @@
-/* POKE 7.1 Invoice 2 Assisgnment*/
-//Product Data
+//invoice3.js  aka Poke 10.1
 //import data from products.js into this file
 import { itemData, quantity} from './products_data.js';
 
-//Calculate extened prices for each item using a liip and increment subtotal as it goes
-let extendedPrices = [];
+//consolidate declared variables to one area for ease of edit and review
 let subtotal=0;
-
-
-
-
-//Product 1
-let item1= 'Dinner Plates';
-let quantity1= 12;
-let price1=24.00;
-let extended_price1=quantity1*price1;
-//Define additional product data and calculate extended prices for each produt (item2, item3,...)
-let item2= 'Salad Plates';
-let quantity2= 12;
-let price2=38.00;
-let extended_price2=quantity2*price2;
-//Product 3
-let item3 = 'Platter';
-let quantity3 = 1;
-let price3 = 159.00;
-let extended_price3 = quantity3 * price3;
-//Product 4
-let item4 = 'Linen Napkins';
-let quantity4 = 12;
-let price4 = 12.00;
-let extended_price4 = quantity4*price4;
-//Product 5
-let item5 = 'Serving Bowls';
-let quantity5 = 4;
-let price5 = 18.00;
-let extended_price5 = quantity5 * price5;
-
-
-
-//Overall Subtotal for all items
-let Subtotal= extended_price1 + extended_price2 + extended_price3 + extended_price4 + extended_price4 + extended_price5;
-
-//Calculate 5.75% sales tax rate
 let taxRate = 0.0575;
-let taxAmount = Subtotal * taxRate;
+let taxAmount = 0;
+let total = 0;
+let shippingCharge = 0;
 
-
-//Calculate Total
-let Total = Subtotal + taxAmount;
-
-//Use DOM manipulation to add product rows dynamically to the table.
-let table = document.getElementById('invoiceTable');
-
-// Create a new row for each item
-let row = table.insertRow(); 
-row.insertCell(0).innerHTML = `${item1}`;
-row.insertCell(1).innerHTML = `${quantity1}`;
-row.insertCell(2).innerHTML = '$'+`${price1}`;
-row.insertCell(3).innerHTML = ('$' + `${extended_price1}`);
-
-row = table.insertRow(); 
-row.insertCell(0).innerHTML = `${item2}`;
-row.insertCell(1).innerHTML = `${quantity2}`;
-row.insertCell(2).innerHTML = '$'+`${price2}`;
-row.insertCell(3).innerHTML = ('$' + `${extended_price2}`);
-
-row = table.insertRow(); 
-row.insertCell(0).innerHTML = `${item3}`;
-row.insertCell(1).innerHTML = `${quantity3}`;
-row.insertCell(2).innerHTML = '$'+`${price3}`;
-row.insertCell(3).innerHTML = ('$' + `${extended_price3}`);
-
-row = table.insertRow(); 
-row.insertCell(0).innerHTML = `${item4}`;
-row.insertCell(1).innerHTML = `${quantity4}`;
-row.insertCell(2).innerHTML = '$'+`${price4}`;
-row.insertCell(3).innerHTML = ('$' + `${extended_price4}`);
-
-row = table.insertRow(); 
-row.insertCell(0).innerHTML = `${item5}`;
-row.insertCell(1).innerHTML = `${quantity5}`;
-row.insertCell(2).innerHTML = '$'+`${price5}`;
-row.insertCell(3).innerHTML = ('$' + `${extended_price5}`);
-
+//Calculate extened prices for each item using a loop and increment subtotal as it goes
+ 
+ 
+generateItemRows();
 
 //Calculate shipping based on sub-total
-let shippingCharge = 0;
 
 if (Subtotal <= 50) {
     shippingCharge = 2;
@@ -94,21 +23,90 @@ if (Subtotal <= 50) {
 } else {
     shippingCharge = Subtotal * 0.05; //5% of the subtotal
 }
-
 //Calculate total including shipping
+taxAmount = subtotal*taxRate;
 Total = Subtotal + taxAmount + shippingCharge;
 
-//assumes there are noerrors or logic requirements on the display of data.. which will not be true.
-
-
+//Use DOM manipulation to add product rows dynamically to the table.
+let table = document.getElementById('invoiceTable');
+//use the generate_item_rows function to generate the part of the invoice table related to the items
+for (let i = 0; i < itemData.length; i++) {
+    let row = table.insertRow();
+    row.insertCell(0).innerHTML = itemData[i].brand;
+    row.insertCell(1).innerHTML = quantity[itemData[i].quantityIndex];
+    row.insertCell(2).innerHTML = '$' + itemData[i].price.toFixed(2);
+    row.insertCell(3).innerHTML = '$' + extendedPrices[i].toFixed(2);
+}
 //Set the total cell in bold
 document.getElementById ('total_cell').innerHTML = `$${Total.toFixed (2)}`; 
-
 
 // Send the subtotal, tax, and total cells to the table
 document.getElementById('subtotal_cell').innerHTML = '$' + Subtotal.toFixed(2);
 document.getElementById('tax_cell').innerHTML = '$' + taxAmount.toFixed(2);
 document.getElementById('shipping_cell').innerHTML = '$' +shippingCharge.toFixed(2);
+
+//validateQuantity function
+function validateQuantity(quantity) {
+    if (isNaN(quantity)) {
+        return "Not a Number";
+    }
+    if (quantity < 0 && !Number.isInteger(quantity)) {
+        return "Negative inventory and not an Integer";
+    }
+    if (quantity < 0) {
+        return "Negative Inventory";
+    }
+    if (!Number.isInteger(quantity)) {
+        return "not an Integer";
+    }
+    return ""; //no errors. 
+}
+
+//function to generate item rows and apply quantity validation
+function generateItemRows() {
+    //get the table element to populate
+    let table = document.getElementById('invoiceTable');
+
+    //clear the table content
+    table.innerHTML = '';
+
+    //initialize variable to keep track of errors
+    let hasErrors = false;
+
+    //loop through the itemData and quantity arrays
+    for (let i = 0; i < itemData.length; i++) {
+        let item = itemData[i];
+        let itemQuantity = quantity[item.quantityIndex];
+
+        //validate the quantity
+        let validateMessage = validateQuantity(itemQuantity);
+
+        //if there are validation errors, display the item with an error message
+        if (validateMessage !== "") {
+            hasErrors = true;
+            let row =table.insertRow();
+            row.insertCell(0).innerHTML = item.brand;
+            row.insertCell(1).innerHTML = validateMessage;
+            row.insertCell(2).innerHTML = '$'+ item.price;
+            row.insertCell(3).innerHTML = '';
+        } else if (itemQuantity > 0) {
+            //calculate the extended price if quantity is valid and positive
+            let extendedPrice = item.price * itemQuantity;
+            subtotal += extendedPrice;
+
+            //display the item with the calculated extended price
+            let row =table.insertRow();
+            row.insertCell(0).innerHTML = item.brand;
+            row.insertCell(1).innerHTML = itemQuantity;
+            row.insertCell(2).innerHTML = '$'+ item.price.toFixed(2);
+            row.insertCell(3).innerHTML = '$'+ extendedPrice.toFixed(2);
+        }
+    }
+    //IF there are no errors, display the total
+    if (!hasErrors) {
+        document.getElementById('total_cell').innerHTML = '$'+ total.toFixed(2);
+    }
+}
 
 
 

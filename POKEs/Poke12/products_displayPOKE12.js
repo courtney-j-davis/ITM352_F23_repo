@@ -1,9 +1,9 @@
 // products_displayPOKE12.js
 
 //define store name and push it to the DOM in the top title
-const first_name = "Sal";
-const last_name = "Aurigemma's";
-const store_name="Sal";//kept from earlier instructions, could replace with first_name
+const first_name = "Courtney";
+const last_name = "Davis's";
+const store_name="Courtney";//kept from earlier instructions, could replace with first_name
 
 // Manipulate the header to display your name with formatting
 //Sal says these comments are weak, have better comments. 

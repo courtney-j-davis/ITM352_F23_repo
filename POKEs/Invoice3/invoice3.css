@@ -33,3 +33,6 @@ tfoot {
     text-align: right;
 }
 
+.error-message {
+    color: red;
+}

@@ -20,26 +20,25 @@ products.forEach( (prod,i) => {prod.total_sold = 0});
 app.use(express.urlencoded({ extended: true }));//this is a middleware function provided by Express.js for handling data that's submitted through HTML forms. It is used to parse and process data that comes from HTML form submissions. This middleware will help your Express application parse and extract data submited on your website, making it accessible for your server-side code to use. 
 
 app.post("/process_form", function (request, response) {
-    let brand = products[0]['brand'];
-    let brand_price = products [0]['price'];
-
-    //response.send(request.body); 
-    let q = Number(request.body['qty_textbox']);
-    console.log("the input value is..."+q);
-    
-    products[0].total_sold +=q;
-    
-    let validationMessage = validateQuantity(q);
-  
-
-
-    if (validationMessage === "") {
-        //response.send(`<h2>Thank you for purchasing ${q} ${brand}. Your total is \$${q * brand_price}!</h2>`);
-        response.redirect('redeipts.html? quantity='+q);
-    } else {
-        response.redirect(`order.html?error=${validationMessage}&qty_textbox=${q}
-        `);
+    let receipt = '';
+    let qtys = request.body[`quantity_textbox`];
+    console.log(qtys);
+    for (i in qtys) {
+        let q = Number(qtys [i]);
+        console.log("the quantity value is "+q);
+        let validationMessage = validateQuantity(q);
+        let brand = products[i]['brand'];
+        let brand_price = products[i]['price'];
+        if (validateQuantity(q)==="") {
+            products[i]['total_sold'] += Number(q);
+            receipt += `<h3>Thank you for purchasing: ${q} ${brand}. Your total is \$${q * brand_price}!</h3>`; // render template string
+        } else {
+            receipt += `<h3><font color="red">${q} is not a valid quantity for ${brand}!<br>
+            ${validationMessage}</font></h3>`;
+        }
     }
+    response.send(receipt);
+    response.end(); 
 }); 
 
 app.all('*', function (request, response, next) {
@@ -47,9 +46,6 @@ app.all('*', function (request, response, next) {
     console.log(request.method + ' to path ' + request.path);
 });
     
-
-
-
 app.listen(8080, () => console.log(`listening on port 8080`)); // note the use of an anonymous function here to do a callback
 
 function validateQuantity(quantity) {

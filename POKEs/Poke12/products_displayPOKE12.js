@@ -114,7 +114,7 @@ function changeClassName(element) {
     hit_spin_span.innerHTML=Number(hits/spins).toFixed(2)
 
 }
-function resetClassName(element) {
+gfunction resetClassName(element) {
     if(element.className=='item rotate'){
         element.className = 'item';
         hits=hits+=2;

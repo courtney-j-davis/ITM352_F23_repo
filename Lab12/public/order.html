@@ -5,12 +5,12 @@
 <head>
     <title>Order Page</title>
     <script src="./products.js"></script>
+    <script src="./order.js"></script>
 </head>
 <body>
-    
-    <script>document.write(`<h3>${products[0]["brand"]} at \$${products[0]["price"]}</h3>`);</script>
-
-    <form name="qty_form" action="/process_form" method="POST">
+   <div id="productDetails"></div>
+    <form name="qty_form" action="process_form" method="POST">
+        <div id="productlist"></div>
         <label for="qty_textbox">Quantity Desired:</label>
         <input type="text" name="qty_textbox">
         <span id="qty_textbox_message">Enter a quantity</span>
@@ -18,8 +18,6 @@
         <br><br>
         <input type="submit" value="Purchase">
     </form>
-    <h2 id="summary"></h2>
-    <!-- note that because the form points to a different page, order3.js no longer is used / matters as written. Why is that?-->
-    <!--script src="order3.js"></script-->
+   
 </body>
 </html>

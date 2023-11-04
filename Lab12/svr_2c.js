@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 
 //part 2c
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));//'express.static(...) this tells the server to use a middleware function that serves static files. 'dirname' is the variable that repreents the directory pathh of the current JS file. This code serves static files and assetts to the web app.
 //part 2a
 app.get('/test',function (req, res) {
     res.send ("<h2> you have reached the test page - Aloha</h2>");

@@ -1,0 +1,63 @@
+
+
+<head>
+
+    <script src="./products_display.js"></script>
+    <script src="/products.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Adding Bootstrap 5 for styling help-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <title>Guitars for Sale</title>
+
+</head>
+<body>
+  
+     <!-- The HTML form with the id "productForm", name "quantity_form", and action set to "./purchase" on form submission.
+      The onsubmit attribute calls the JavaScript function validateForm() to perform form validation before submission.
+      If validateForm() returns false, the form submission is prevented. -->
+      <form id="productForm" name="quantity_form" action="./purchase" method="POST" onsubmit="return validateForm()"></form>
+
+        <!--this is where the products and the quantity input textboxes are going to be displayed-->
+        <!--dynamic product inputs will be inserted here-->
+
+        
+        
+        
+        <!--Add a Navigation Bar so customers can toggle between the index.html and products_display.htm-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src= "/images/BR Fret Shop Logo 1 copy.jpeg " alt="" width="150" height="130">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Menu
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="./products_display.html">Vintage Guitars for Sale</a></li>
+                      <li><a class="dropdown-item" href="./index.html">Hardwood Guitars Hawaii Homepage</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="nav-link" href="https://brfretshop.com/">BR Fret Shop</a></li>
+                    </ul>
+                  </li>
+                  
+                </ul>
+                
+              </div>
+            </div>
+          </nav>
+
+<h1>Hardwood Guitars Hawaii || Vintage Guitars for Sale</h1>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="./products_display.js" async></script>
+</body>
+</html>
